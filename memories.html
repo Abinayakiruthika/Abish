@@ -14,7 +14,6 @@ body{
   overflow-x:hidden;
 }
 
-/* header */
 header{
   text-align:center;
   padding:20px 10px 10px;
@@ -23,7 +22,6 @@ header{
   font-weight:700;
 }
 
-/* floating hearts */
 .heart{
   position:fixed;
   bottom:-20px;
@@ -39,7 +37,6 @@ header{
   to{transform:translateY(-110vh);opacity:0;}
 }
 
-/* container */
 .container{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
@@ -50,10 +47,7 @@ header{
   padding:12px;
 }
 
-/* flip card */
-.card{
-  perspective:1000px;
-}
+.card{ perspective:1000px; }
 
 .inner{
   position:relative;
@@ -65,12 +59,9 @@ header{
   border-radius:18px;
 }
 
-.card.open .inner{
-  transform:rotateY(180deg);
-}
+.card.open .inner{ transform:rotateY(180deg); }
 
-.front,
-.back{
+.front,.back{
   position:absolute;
   inset:0;
   border-radius:18px;
@@ -83,7 +74,6 @@ header{
   box-shadow:0 8px 20px rgba(0,0,0,.15);
 }
 
-/* front */
 .front{
   background:white;
   color:#e91e63;
@@ -92,7 +82,6 @@ header{
   font-weight:700;
 }
 
-/* back image */
 .back{
   transform:rotateY(180deg);
   background:black;
@@ -116,11 +105,7 @@ header{
   color:#ff6fa5;
 }
 
-
-/* ---------------------------
-   ECG line under all cards
---------------------------- */
-
+/* ECG line */
 .ecg-line-wrap{
   width:100%;
   max-width:1000px;
@@ -128,10 +113,7 @@ header{
   padding:0 14px;
 }
 
-.ecg-line{
-  width:100%;
-  height:48px;
-}
+.ecg-line{ width:100%; height:48px; }
 
 .ecg-line path{
   fill:none;
@@ -144,12 +126,7 @@ header{
   animation:ecgRun 3s linear infinite;
 }
 
-@keyframes ecgRun{
-  to{
-    stroke-dashoffset:0;
-  }
-}
-
+@keyframes ecgRun{ to{ stroke-dashoffset:0; } }
 </style>
 </head>
 
@@ -159,75 +136,68 @@ header{
 
 <div class="container">
 
-<!-- CARD 1 -->
-<div class="card" data-song="songs/snehithane.mp3" onclick="openCard(this)">
+<div class="card" data-song="Songs/snehithane.mp3" onclick="openCard(this)">
   <div class="inner">
     <div class="front">
       Thangame any guess ? (first thing you bought in our lifetime) 💗
       <div class="tap">Tap 💕</div>
     </div>
     <div class="back">
-      <img src="images/dairymilk.jpeg">
+      <img src="Images/dairymilk.jpeg">
     </div>
   </div>
 </div>
 
-<!-- CARD 2 -->
-<div class="card" data-song="C:\Users\abino\OneDrive\Desktop\abish valentine\songs\metti.mp3" onclick="openCard(this)">
+<div class="card" data-song="Songs/metti.mp3" onclick="openCard(this)">
   <div class="inner">
     <div class="front">
-      First time you groomed me !! Rememeber???🌙
+      First time you groomed me !! Rememeber??? 🌙
       <div class="tap">Tap 💕</div>
     </div>
     <div class="back">
-      <img src="C:\Users\abino\OneDrive\Desktop\abish valentine\images\nailpolish.jpeg">
+      <img src="Images/nailpolish.jpeg">
     </div>
   </div>
 </div>
 
-<!-- CARD 3 -->
-<div class="card" data-song="C:\Users\abino\OneDrive\Desktop\abish valentine\songs\mutharame.mp3" onclick="openCard(this)">
+<div class="card" data-song="Songs/mutharame.mp3" onclick="openCard(this)">
   <div class="inner">
     <div class="front">
-      En Avan Enudayavan Enakanavan Alagan Murugan Aasirwadhamudan✨
+      En Avan Enudayavan Enakanavan Alagan Murugan Aasirwadhamudan ✨
       <div class="tap">Tap 💕</div>
     </div>
     <div class="back">
-      <img src="C:\Users\abino\OneDrive\Desktop\abish valentine\images\malaysia murugan.jpeg">
+      <img src="Images/malaysia-murugan.jpeg">
     </div>
   </div>
 </div>
 
-<!-- CARD 4 -->
-<div class="card" data-song="C:\Users\abino\OneDrive\Desktop\abish valentine\songs\eppadivanthayo.mp3" onclick="openCard(this)">
+<div class="card" data-song="Songs/eppadivanthayo.mp3" onclick="openCard(this)">
   <div class="inner">
     <div class="front">
-      I don’t how you came into my life that one day that sparkle lufe chnaging moment 🤍
+      I don’t know how you came into my life… that sparkle life-changing moment 🤍
       <div class="tap">Tap 💕</div>
     </div>
     <div class="back">
-      <img src="C:\Users\abino\OneDrive\Desktop\abish valentine\images\redsalwar.jpeg">
+      <img src="Images/redsalwar.jpeg">
     </div>
   </div>
 </div>
 
-<!-- CARD 5 -->
-<div class="card" data-song="C:\Users\abino\OneDrive\Desktop\abish valentine\songs\kangaledho.mp3" onclick="openCard(this)">
+<div class="card" data-song="Songs/kangaledho.mp3" onclick="openCard(this)">
   <div class="inner">
     <div class="front">
-      Office Days Oxygen Days !!!! 💞
+      Office Days… Oxygen Days !!!! 💞
       <div class="tap">Tap 💕</div>
     </div>
     <div class="back">
-      <img src="C:\Users\abino\OneDrive\Desktop\abish valentine\images\amazonofc.jpeg">
+      <img src="Images/amazonofc.jpeg">
     </div>
   </div>
 </div>
 
 </div>
 
-
-<!-- ✅ ONE LONG ECG LINE BELOW THE CARDS -->
 <div class="ecg-line-wrap">
 <svg class="ecg-line" viewBox="0 0 1000 80" preserveAspectRatio="none">
   <path d="
@@ -245,11 +215,9 @@ header{
   L710 20 L730 60 L750 40
   L820 40
   L840 15 L860 65 L880 40
-  L1000 40
-  "/>
+  L1000 40"/>
 </svg>
 </div>
-
 
 <audio id="player"></audio>
 
@@ -257,7 +225,6 @@ header{
 const player = document.getElementById("player");
 
 function openCard(card){
-
   if(card.classList.contains("open")) return;
 
   document.querySelectorAll(".card").forEach(c=>{
@@ -267,7 +234,6 @@ function openCard(card){
   card.classList.add("open");
 
   const song = card.dataset.song;
-
   if(song){
     player.pause();
     player.currentTime = 0;
@@ -277,7 +243,6 @@ function openCard(card){
   }
 }
 
-/* floating hearts */
 function createHeart(){
   const h=document.createElement("div");
   h.className="heart";
@@ -286,10 +251,8 @@ function createHeart(){
   h.style.fontSize=(12+Math.random()*16)+"px";
   h.style.animationDuration=(5+Math.random()*4)+"s";
   document.body.appendChild(h);
-
   setTimeout(()=>h.remove(),9000);
 }
-
 setInterval(createHeart,700);
 </script>
 
