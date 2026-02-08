@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Abish Valentine</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(#ffd6e5,#ffe9f0);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* background floating hearts */
+.heart{
+  position:absolute;
+  width:16px;
+  height:16px;
+  background:#ff6fa5;
+  transform:rotate(45deg);
+  animation:float 10s linear infinite;
+  opacity:.7;
+}
+
+.heart:before,.heart:after{
+  content:"";
+  position:absolute;
+  width:16px;
+  height:16px;
+  background:#ff6fa5;
+  border-radius:50%;
+}
+
+.heart:before{left:-8px;}
+.heart:after{top:-8px;}
+
+@keyframes float{
+  0%{bottom:-20px;transform:translateX(0) rotate(45deg);}
+  100%{bottom:110%;transform:translateX(120px) rotate(45deg);}
+}
+
+/* card */
+.card{
+  background:white;
+  padding:35px 30px;
+  border-radius:30px;
+  width:330px;
+  max-width:92vw;
+  text-align:center;
+  box-shadow:0 25px 60px rgba(0,0,0,0.15);
+  position:relative;
+  z-index:2;
+}
+
+/* BIG CIRCLE HOLDER */
+.photo{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  border:4px solid #ff6fa5;
+  margin:0 auto 15px;
+  box-shadow:0 0 20px #ff9fc4;
+  overflow:hidden;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform: scale(1.08);
+  object-position:center 60%;
+  display:block;
+}
+
+/* Abish text */
+.name{
+  font-size:32px;
+  font-weight:700;
+  color:#e91e63;
+  position:relative;
+  display:inline-block;
+  margin-top:6px;
+}
+
+/* small flying image near Abish */
+.name img{
+  width:36px;
+  height:36px;
+  object-fit:cover;
+  border-radius:50%;
+  border:2px solid #ff6fa5;
+  position:absolute;
+  right:-44px;
+  top:-8px;
+  animation:flyPic 2.2s infinite ease-in-out;
+  box-shadow:0 0 10px #ff9fc4;
+}
+
+@keyframes flyPic{
+  0%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-14px) scale(1.1);}
+  100%{transform:translateY(0) scale(1);}
+}
+
+.subtitle{
+  color:#ff4f8b;
+  margin-top:6px;
+  font-size:18px;
+}
+
+.buttons{
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+}
+
+button{
+  padding:10px 22px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.yes{
+  background:#e91e63;
+  color:white;
+  box-shadow:0 8px 20px rgba(233,30,99,.4);
+}
+
+.no{
+  background:#d5d5d5;
+}
+
+/* No popup */
+#noPopup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.35);
+  backdrop-filter:blur(4px);
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+}
+
+#noBox{
+  background:white;
+  padding:30px 28px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,0.2);
+  animation:popNo .6s ease;
+  max-width:260px;
+}
+
+@keyframes popNo{
+  0%{transform:scale(.6);opacity:0;}
+  70%{transform:scale(1.08);}
+  100%{transform:scale(1);opacity:1;}
+}
+
+#noBox h3{
+  color:#e91e63;
+  margin-top:10px;
+}
+
+#noBox p{
+  font-size:14px;
+  color:#777;
+  margin-top:6px;
+}
+
+#noBox button{
+  margin-top:15px;
+  background:#e91e63;
+  color:white;
+}
+</style>
+</head>
+<body>
+
+<div class="heart" style="left:10%;animation-duration:9s;"></div>
+<div class="heart" style="left:30%;animation-duration:11s;"></div>
+<div class="heart" style="left:50%;animation-duration:8s;"></div>
+<div class="heart" style="left:70%;animation-duration:12s;"></div>
+<div class="heart" style="left:90%;animation-duration:10s;"></div>
+
+<div class="card">
+
+  <div class="photo">
+    <img src="images/handabish.jpeg" alt="">
+  </div>
+
+  <div class="name">
+    Abish
+    <img src="images/handabish.jpeg" alt="">
+  </div>
+
+  <div class="subtitle">Will you be my Valentine?</div>
+
+  <div class="buttons">
+    <button class="yes" onclick="goNext()">Yes 💕</button>
+    <button class="no" onclick="showNoLove()">No 🙈</button>
+  </div>
+
+</div>
+
+<div id="noPopup">
+  <div id="noBox">
+    <div style="font-size:38px;">🥺💗</div>
+    <h3>Thangame no solakudathey…</h3>
+    <p>Please say Yes only 😘</p>
+    <div style="margin-top:12px;font-size:14px;color:#ff5f95;">
+      🎵 Listen to my heart…
+    </div>
+    <button onclick="closeNo()">OK 💞</button>
+  </div>
+
+  <!-- popup song -->
+  <audio id="noSong" src="songs/Thangapoove.mp3"></audio>
+</div>
+
+<!-- background song for YES -->
+<audio id="bgm" src="" loop></audio>
+
+<script>
+function showNoLove(){
+
+  const pop = document.getElementById("noPopup");
+  const song = document.getElementById("noSong");
+
+  pop.style.display = "flex";
+
+  song.currentTime = 0;
+  song.play().catch(()=>{});
+}
+
+function closeNo(){
+
+  document.getElementById("noPopup").style.display="none";
+
+  const song = document.getElementById("noSong");
+  song.pause();
+}
+
+function goNext(){
+
+  const music = document.getElementById("bgm");
+  music.play().catch(()=>{});
+
+  setTimeout(()=>{
+    window.location.href="memories.html";
+  },800);
+}
+</script>
+
+</body>
+</html>

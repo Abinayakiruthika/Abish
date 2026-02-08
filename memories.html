@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI, sans-serif;
+  background:linear-gradient(#ffe0ec,#fff6fa);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* header */
+header{
+  text-align:center;
+  padding:20px 10px 10px;
+  font-size:30px;
+  color:#e91e63;
+  font-weight:700;
+}
+
+/* floating hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:18px;
+  color:#ff6fa5;
+  animation:floatUp linear forwards;
+  opacity:.7;
+  pointer-events:none;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);opacity:1;}
+  to{transform:translateY(-110vh);opacity:0;}
+}
+
+/* container */
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:16px;
+  width:94%;
+  max-width:1000px;
+  margin:0 auto 10px;
+  padding:12px;
+}
+
+/* flip card */
+.card{
+  perspective:1000px;
+}
+
+.inner{
+  position:relative;
+  width:100%;
+  height:240px;
+  transform-style:preserve-3d;
+  transition:transform .9s;
+  cursor:pointer;
+  border-radius:18px;
+}
+
+.card.open .inner{
+  transform:rotateY(180deg);
+}
+
+.front,
+.back{
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  backface-visibility:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+/* front */
+.front{
+  background:white;
+  color:#e91e63;
+  font-size:14px;
+  line-height:1.5;
+  font-weight:700;
+}
+
+/* back image */
+.back{
+  transform:rotateY(180deg);
+  background:black;
+  overflow:hidden;
+}
+
+.back img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:black;
+  border-radius:18px;
+}
+
+.tap{
+  position:absolute;
+  bottom:6px;
+  left:0;
+  right:0;
+  font-size:11px;
+  color:#ff6fa5;
+}
+
+
+/* ---------------------------
+   ECG line under all cards
+--------------------------- */
+
+.ecg-line-wrap{
+  width:100%;
+  max-width:1000px;
+  margin:6px auto 35px;
+  padding:0 14px;
+}
+
+.ecg-line{
+  width:100%;
+  height:48px;
+}
+
+.ecg-line path{
+  fill:none;
+  stroke:#ff4f88;
+  stroke-width:3;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-dasharray:1200;
+  stroke-dashoffset:1200;
+  animation:ecgRun 3s linear infinite;
+}
+
+@keyframes ecgRun{
+  to{
+    stroke-dashoffset:0;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>Our Memories 💕</header>
+
+<div class="container">
+
+<!-- CARD 1 -->
+<div class="card" data-song="songs/snehithane.mp3" onclick="openCard(this)">
+  <div class="inner">
+    <div class="front">
+      Thangame any guess ? (first thing you bought in our lifetime) 💗
+      <div class="tap">Tap 💕</div>
+    </div>
+    <div class="back">
+      <img src="images/dairymilk.jpeg">
+    </div>
+  </div>
+</div>
+
+<!-- CARD 2 -->
+<div class="card" data-song="C:\Users\abino\OneDrive\Desktop\abish valentine\songs\metti.mp3" onclick="openCard(this)">
+  <div class="inner">
+    <div class="front">
+      First time you groomed me !! Rememeber???🌙
+      <div class="tap">Tap 💕</div>
+    </div>
+    <div class="back">
+      <img src="C:\Users\abino\OneDrive\Desktop\abish valentine\images\nailpolish.jpeg">
+    </div>
+  </div>
+</div>
+
+<!-- CARD 3 -->
+<div class="card" data-song="C:\Users\abino\OneDrive\Desktop\abish valentine\songs\mutharame.mp3" onclick="openCard(this)">
+  <div class="inner">
+    <div class="front">
+      En Avan Enudayavan Enakanavan Alagan Murugan Aasirwadhamudan✨
+      <div class="tap">Tap 💕</div>
+    </div>
+    <div class="back">
+      <img src="C:\Users\abino\OneDrive\Desktop\abish valentine\images\malaysia murugan.jpeg">
+    </div>
+  </div>
+</div>
+
+<!-- CARD 4 -->
+<div class="card" data-song="C:\Users\abino\OneDrive\Desktop\abish valentine\songs\eppadivanthayo.mp3" onclick="openCard(this)">
+  <div class="inner">
+    <div class="front">
+      I don’t how you came into my life that one day that sparkle lufe chnaging moment 🤍
+      <div class="tap">Tap 💕</div>
+    </div>
+    <div class="back">
+      <img src="C:\Users\abino\OneDrive\Desktop\abish valentine\images\redsalwar.jpeg">
+    </div>
+  </div>
+</div>
+
+<!-- CARD 5 -->
+<div class="card" data-song="C:\Users\abino\OneDrive\Desktop\abish valentine\songs\kangaledho.mp3" onclick="openCard(this)">
+  <div class="inner">
+    <div class="front">
+      Office Days Oxygen Days !!!! 💞
+      <div class="tap">Tap 💕</div>
+    </div>
+    <div class="back">
+      <img src="C:\Users\abino\OneDrive\Desktop\abish valentine\images\amazonofc.jpeg">
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<!-- ✅ ONE LONG ECG LINE BELOW THE CARDS -->
+<div class="ecg-line-wrap">
+<svg class="ecg-line" viewBox="0 0 1000 80" preserveAspectRatio="none">
+  <path d="
+  M0 40 L60 40
+  L80 15 L100 65 L120 40
+  L180 40
+  L200 20 L220 60 L240 40
+  L300 40
+  L320 10 L340 70 L360 40
+  L430 40
+  L450 18 L470 62 L490 40
+  L560 40
+  L580 14 L600 66 L620 40
+  L690 40
+  L710 20 L730 60 L750 40
+  L820 40
+  L840 15 L860 65 L880 40
+  L1000 40
+  "/>
+</svg>
+</div>
+
+
+<audio id="player"></audio>
+
+<script>
+const player = document.getElementById("player");
+
+function openCard(card){
+
+  if(card.classList.contains("open")) return;
+
+  document.querySelectorAll(".card").forEach(c=>{
+    c.classList.remove("open");
+  });
+
+  card.classList.add("open");
+
+  const song = card.dataset.song;
+
+  if(song){
+    player.pause();
+    player.currentTime = 0;
+    player.src = song;
+    player.loop = false;
+    player.play().catch(()=>{});
+  }
+}
+
+/* floating hearts */
+function createHeart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText="❤";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(12+Math.random()*16)+"px";
+  h.style.animationDuration=(5+Math.random()*4)+"s";
+  document.body.appendChild(h);
+
+  setTimeout(()=>h.remove(),9000);
+}
+
+setInterval(createHeart,700);
+</script>
+
+</body>
+</html>
