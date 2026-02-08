@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Enter Password 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(#ffd6e5,#ffe9f0);
+  font-family:Segoe UI, sans-serif;
+}
+
+.box{
+  background:white;
+  padding:30px 28px;
+  border-radius:22px;
+  text-align:center;
+  width:300px;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+h2{
+  color:#e91e63;
+  margin-bottom:8px;
+}
+
+p{
+  font-size:14px;
+  color:#777;
+}
+
+input{
+  margin-top:15px;
+  padding:10px 14px;
+  width:100%;
+  border-radius:20px;
+  border:1px solid #ddd;
+  outline:none;
+  font-size:16px;
+  text-align:center;
+}
+
+button{
+  margin-top:15px;
+  padding:10px 22px;
+  border:none;
+  border-radius:20px;
+  background:#e91e63;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.error{
+  margin-top:10px;
+  color:#ff3b6f;
+  font-size:14px;
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>🔐 Secret Page</h2>
+  <p>Only for my special one 💕</p>
+
+  <input type="password" id="pwd" placeholder="Enter password">
+
+  <button onclick="check()">Enter 💗</button>
+
+  <div class="error" id="err">Wrong password 🥺</div>
+</div>
+
+<script>
+/* 🔐 CHANGE YOUR PASSWORD HERE */
+const PASSWORD = "abish";
+
+function check(){
+  const v = document.getElementById("pwd").value;
+
+  if(v === PASSWORD){
+    window.location.href = "memories.html";
+  }else{
+    document.getElementById("err").style.display="block";
+  }k
+}
+</script>
+
+</body>
+</html>
