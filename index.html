@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Abish Valentine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 *{
@@ -200,12 +201,12 @@ button{
 <div class="card">
 
   <div class="photo">
-    <img src="images/handabish.jpeg" alt="">
+    <img src="Images/handabish.jpeg" alt="">
   </div>
 
   <div class="name">
     Abish
-    <img src="images/handabish.jpeg" alt="">
+    <img src="Images/handabish.jpeg" alt="">
   </div>
 
   <div class="subtitle">Will you be my Valentine?</div>
@@ -228,38 +229,29 @@ button{
     <button onclick="closeNo()">OK 💞</button>
   </div>
 
-  <!-- popup song -->
-  <audio id="noSong" src="songs/Thangapoove.mp3"></audio>
+  <audio id="noSong" src="Songs/Thangapoove.mp3"></audio>
 </div>
 
-<!-- background song for YES -->
-<audio id="bgm" src="" loop></audio>
+<audio id="bgm" src="Songs/snehithane.mp3" loop></audio>
 
 <script>
 function showNoLove(){
-
   const pop = document.getElementById("noPopup");
   const song = document.getElementById("noSong");
-
   pop.style.display = "flex";
-
   song.currentTime = 0;
   song.play().catch(()=>{});
 }
 
 function closeNo(){
-
   document.getElementById("noPopup").style.display="none";
-
   const song = document.getElementById("noSong");
   song.pause();
 }
 
 function goNext(){
-
   const music = document.getElementById("bgm");
   music.play().catch(()=>{});
-
   setTimeout(()=>{
     window.location.href="memories.html";
   },800);
