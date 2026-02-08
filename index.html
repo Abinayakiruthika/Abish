@@ -188,6 +188,72 @@ button{
   background:#e91e63;
   color:white;
 }
+
+/* PASSWORD POPUP */
+
+#passPopup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.35);
+  backdrop-filter:blur(4px);
+  align-items:center;
+  justify-content:center;
+  z-index:20;
+}
+
+#passBox{
+  background:white;
+  padding:26px 24px;
+  border-radius:22px;
+  width:260px;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+  animation:popNo .5s ease;
+}
+
+#passBox h3{
+  color:#e91e63;
+  margin:10px 0 12px;
+  font-size:18px;
+}
+
+#passBox input{
+  width:100%;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid #ffc1d7;
+  outline:none;
+  font-size:15px;
+}
+
+.passBtns{
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+}
+
+.passBtns button{
+  padding:8px 14px;
+  border:none;
+  border-radius:18px;
+  background:#e91e63;
+  color:white;
+  cursor:pointer;
+}
+
+.passBtns .cancel{
+  background:#ddd;
+  color:#444;
+}
+
+#passError{
+  display:none;
+  margin-top:10px;
+  color:#ff4f8b;
+  font-size:13px;
+}
 </style>
 </head>
 <body>
@@ -201,12 +267,12 @@ button{
 <div class="card">
 
   <div class="photo">
-    <img src="Images/handabish.jpeg" alt="">
+    <img src="Images/handabish.jpeg">
   </div>
 
   <div class="name">
     Abish
-    <img src="Images/handabish.jpeg" alt="">
+    <img src="Images/handabish.jpeg">
   </div>
 
   <div class="subtitle">Will you be my Valentine?</div>
@@ -218,6 +284,7 @@ button{
 
 </div>
 
+<!-- NO popup -->
 <div id="noPopup">
   <div id="noBox">
     <div style="font-size:38px;">🥺💗</div>
@@ -232,41 +299,63 @@ button{
   <audio id="noSong" src="Songs/Thangapoove.mp3"></audio>
 </div>
 
+
+<!-- PASSWORD popup -->
+<div id="passPopup">
+  <div id="passBox">
+    <div style="font-size:30px;">💖</div>
+    <h3>Enter our secret password</h3>
+
+    <input id="passInput" type="password" placeholder="Password">
+
+    <div class="passBtns">
+      <button onclick="checkPassword()">Unlock 💕</button>
+      <button class="cancel" onclick="closePass()">Cancel</button>
+    </div>
+
+    <p id="passError">Wrong password 🥺</p>
+  </div>
+</div>
+
 <script>
 function showNoLove(){
-
   const pop = document.getElementById("noPopup");
   const song = document.getElementById("noSong");
-
   pop.style.display = "flex";
-
   song.currentTime = 0;
   song.play().catch(()=>{});
 }
 
 function closeNo(){
-
   document.getElementById("noPopup").style.display="none";
-
   const song = document.getElementById("noSong");
   song.pause();
 }
 
-/* ✅ YES → PASSWORD → memories.html */
+/* YES button */
 function goNext(){
+  document.getElementById("passPopup").style.display="flex";
+  document.getElementById("passInput").value="";
+  document.getElementById("passError").style.display="none";
+}
 
-  const pwd = prompt("💗 Thangame… enter our secret password");
+/* CHANGE YOUR PASSWORD HERE */
+const SECRET = "abish";
 
-  if(pwd === null) return;
+function checkPassword(){
+  const val = document.getElementById("passInput").value;
 
-  if(pwd.trim() === "abish"){
+  if(val === SECRET){
     window.location.href = "memories.html";
   }else{
-    alert("🥺 Wrong password… try again");
+    document.getElementById("passError").style.display="block";
   }
+}
+
+function closePass(){
+  document.getElementById("passPopup").style.display="none";
 }
 </script>
 
 </body>
 </html>
-
