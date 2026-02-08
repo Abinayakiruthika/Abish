@@ -1,66 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Enter Password 💗</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enter Password</title>
 
 <style>
 body{
   margin:0;
+  font-family:Segoe UI, sans-serif;
+  background:linear-gradient(#ffd6e5,#ffe9f0);
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:linear-gradient(#ffd6e5,#ffe9f0);
-  font-family:Segoe UI, sans-serif;
 }
 
 .box{
   background:white;
-  padding:30px 28px;
+  padding:28px 26px 30px;
   border-radius:22px;
+  width:280px;
   text-align:center;
-  width:300px;
-  box-shadow:0 20px 40px rgba(0,0,0,.15);
+  box-shadow:0 20px 40px rgba(0,0,0,.2);
 }
 
 h2{
   color:#e91e63;
-  margin-bottom:8px;
-}
-
-p{
-  font-size:14px;
-  color:#777;
+  margin-bottom:10px;
 }
 
 input{
-  margin-top:15px;
-  padding:10px 14px;
   width:100%;
+  padding:10px 14px;
   border-radius:20px;
   border:1px solid #ddd;
   outline:none;
   font-size:16px;
+  margin-top:10px;
   text-align:center;
 }
 
 button{
-  margin-top:15px;
+  margin-top:14px;
   padding:10px 22px;
   border:none;
-  border-radius:20px;
+  border-radius:22px;
   background:#e91e63;
   color:white;
-  font-size:16px;
+  font-size:15px;
   cursor:pointer;
 }
 
 .error{
-  margin-top:10px;
-  color:#ff3b6f;
-  font-size:14px;
+  color:#e91e63;
+  font-size:13px;
+  margin-top:8px;
   display:none;
 }
 </style>
@@ -69,28 +64,24 @@ button{
 <body>
 
 <div class="box">
-  <h2>🔐 Secret Page</h2>
-  <p>Only for my special one 💕</p>
-
-  <input type="password" id="pwd" placeholder="Enter password">
-
-  <button onclick="check()">Enter 💗</button>
-
-  <div class="error" id="err">Wrong password 🥺</div>
+  <h2>💗 Enter our secret 💗</h2>
+  <input type="password" id="pwd" placeholder="Password">
+  <button onclick="check()">Unlock 💕</button>
+  <div class="error" id="err">Wrong password 😢</div>
 </div>
 
 <script>
-/* 🔐 CHANGE YOUR PASSWORD HERE */
-const PASSWORD = "abish";
-
 function check(){
-  const v = document.getElementById("pwd").value;
 
-  if(v === PASSWORD){
+  const correct = "abish";
+  const val = document.getElementById("pwd").value;
+
+  if(val === correct){
     window.location.href = "memories.html";
   }else{
-    document.getElementById("err").style.display="block";
-  }k
+    document.getElementById("err").style.display = "block";
+  }
+
 }
 </script>
 
